@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>АРМ</title>
+  <link rel="stylesheet" href="{% static 'css/color.css' %}">
+</head>
+<body>
+  <h1>Задания на обработку</h1>
+
+  <table class="task-table">
+    <thead>
+      <tr>
+        <th>Заказ №</th>
+        <th>Материал</th>
+        <th>Операций</th>
+        <th>Цена</th>
+        <th>Сумма</th>
+        <th>Статус</th>
+        <th>Действия</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="ready">
+        <td>Заказ №118</td>
+        <td>выполнить Кромка<br>"Диван Полерма"</td>
+        <td>6 шт.</td>
+        <td>1 шт. (6,67 ₽)</td>
+        <td>Сумма: 40.0 ₽</td>
+        <td>Готово к работе</td>
+        <td>
+          <form method="post" action="/take/118/">{% csrf_token %}
+            <button type="submit">Взять в работу</button>
+          </form>
+          <button class="detail-btn" data-id="118">Подробнее</button>
+          <a href="#">Файлы</a>
+          <div style="margin-top: 5px; font-size: 0.9em;">
+            Заказ покупателя №110 от 15.10.2024 12:32
+          </div>
+        </td>
+      </tr>
+
+      <tr class="ready">
+        <td>Заказ №244</td>
+        <td>выполнить Кромка<br>"Палуба"</td>
+        <td>10 шт.</td>
+        <td>1 шт. (2.00 ₽)</td>
+        <td>Сумма: 20.0 ₽</td>
+        <td>Готово к работе</td>
+        <td>
+          <form method="post" action="/take/244/">{% csrf_token %}
+            <button type="submit">Взять в работу</button>
+          </form>
+          <button class="detail-btn" data-id="244">Подробнее</button>
+          <a href="#">Файлы</a>
+          <div style="margin-top: 5px; font-size: 0.9em;">
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
